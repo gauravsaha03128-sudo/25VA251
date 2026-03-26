@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops in Js</title>
+</head>
+
+<body>
+    <script>
+        // Loops - execute a block of code repeatedly until a specific condition is met.
+
+        let studentList = ["Vivek", "Vinay", "Rahul", "Abhi", "Sanjay"];
+        // For loop.........
+        for (let i = 0; i < studentList.length; i++) {
+            // console.log(studentList[i]);
+        }
+        // while  loop..
+        let i = 0;
+        while (i < studentList.length) {
+            // console.log(studentList[i]);
+            i++;
+        }
+        //for...of loop: Introduced in ECMAScript 6, this loop iterates over the values of iterable objects such as arrays, strings, maps, and sets
+        for(let x of studentList){
+            console.log(x);
+        }
+        //for..in: Iterates over the  properties of an object. It is generally recommended for objects rather than arrays.
+
+        // see example in object
+
+    </script>
+</body>
+
+</html>

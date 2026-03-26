@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom in JS</title>
+</head>
+
+<body>
+    <!-- The Document Object Model (DOM) is a programming interface that treats an HTML, SVG, or XML document as a tree structure of objects. This allows JavaScript to access and manipulate the content, structure, and style of a web page dynamically. -->
+  <!--   <h2>Check your age to cast the Vote!</h2>
+    <form action="">
+        <input type="number" placeholder="Enter your age!" name="age" id="age" />
+        <input type="submit" value="submit" onclick="result()" />
+    </form> -->
+
+<input type="text" placeholder="Enter your name" id="inputData"/>
+ <h2 id="text">Diaplay name</h2>
+ <button onclick="changeColor()">Click on me!</button>
+ <p id="paragraph">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Est laboriosam, expedita ipsum rem aliquid aspernatur perspiciatis, suscipit quisquam voluptas dicta quaerat optio fuga aperiam tempore quidem laudantium ea! Voluptatum, illum?
+ </p>
+
+    <script>
+      /*   function result() {
+            let myAge = document.getElementById('age').value;
+            if (myAge >= 18) {
+                alert("Eligible");
+            }
+            else {
+                alert("Not Eligible");
+            }
+        } */
+
+        function changeColor(){
+            let inputValue=document.getElementById("inputData").value;
+
+            let inputText=document.getElementById('text');
+
+            inputText.innerHTML=inputValue;
+
+            inputText.style.color="red";
+            // random color
+
+inputText.style.backgroundColor="#"+Math.floor(Math.random() * 16777215).toString(16);
+
+
+        }
+        // change para color using addEventListner method
+        let para=document.getElementById('paragraph');
+    function changeColor(){
+    
+    para.style.color="#"+Math.floor(Math.random() * 16777215).toString(16);
+}
+para.addEventListener("mouseover",changeColor);
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function in JS</title>
+</head>
+<body>
+    <script>
+        //Function:- block of codes , designed to perform specific task
+        //types of function - with parameter, without parameter and with default parameter
+        
+        //normal function without para
+        function demo(){
+             console.log("Hello JS");
+        }
+        demo(); // function calling
+        //function with parameter
+        function demo1(text){
+            console.log("Hello " + text);
+        }
+        demo1("React");
+        //function with defualt para
+
+        function add(a,b=10){
+             var num1=a;
+             var num2=b;
+             var res=num1+num2;
+             console.log("Addition of two number is " + res);
+        }
+        add(34);
+        //synchronous and asynchronous
+        //Synchronous (sync) operations run sequentially, blocking further execution until a task completes, providing immediate consistency. Asynchronous (async) operations run concurrently or non-blockingly, allowing other tasks to proceed while waiting for a response, boosting efficiency and scalability in I/O-heavy applications
+
+      /*   function cal(){
+            function add(a,b){
+                console.log("additon is " + (a+b));
+            }
+            function sub(x,y){
+                console.log("Subtraction is " + (x-y));
+            }
+            function mul(p,q){
+                console.log("Multiplication is " + (p*q));
+            }
+            mul(9,6);
+            sub(5,7);
+            add(2,4);  
+        }
+        cal(); */
+
+        // Anonyomous Function: a function that does not have an identifier (name) associated with it.
+
+        let msg= function(){
+             console.log("Hello ABES");
+        }
+        msg();
+        //short code for above function i.e. arrow function
+
+        let msg1=()=>console.log("Hello React");
+        msg1();
+        //arrow function with multiple lines
+        let msg2=(age)=>{
+          if(age>=18){
+            console.log("valid age");
+          }
+        }
+        msg2(23);
+
+        //call back function
+        //A callback function is a function passed as an argument into another function. A callback function is intended to be executed later.
+
+
+        function cal(a,b,callback){
+        var num1=a;
+        console.log("First number is " + num1);
+        var num2=b;
+        console.log("Second number is " + num2);
+        var res=num1+num2;
+      callback(res);
+        }
+        function display(res){
+            console.log("Result is " + res);
+        }
+        cal(3,4,display);
+
+        // callback using setTimeout API
+
+        function greeting(){
+            document.writeln("Hello Student");
+        }
+        function loading(){
+            document.writeln("Data loading.....");
+        }
+         loading();
+        setTimeout(greeting, 2000);
+        //call back hell.......
+
+        //JavaScript Promises: JavaScript Promises were created to make asynchronous JavaScript easier to use.
+        //Promises Stages..........
+// pending-	operation started (not finished)
+// rejected-	operation failed
+// fulfilled-	operation completed
+let promise=new Promise(function(resolve,reject){
+    let myAge =23;
+    if(myAge>=18){
+        resolve("valid age");
+    }
+    else{
+        reject("wait for next year");
+    }
+});
+promise.then(result=>console.log(result)).catch(error=>console.log(error));
+
+//async and await are modern JavaScript keywords that provide a cleaner, more readable way to work with asynchronous code and promises, making asynchronous code look and feel more like traditional synchronous code.
+//fetch api
+
+async function userData(){
+ let userResponse=await fetch('https://dummyjson.com/products?limit=10&skip=10&select=title,price');
+ let userDataRes=await userResponse.json();
+ console.log(userDataRes);
+}
+userData();
+       //async await using try catch
+
+       async function productDetail() {
+        try{
+            let proRes=await fetch('https://fakestoreapi.com/products');
+        let proResData=await proRes.json();
+        console.log(proResData);
+        }
+        catch(error){
+             console.log("not valid data " + error);
+        }
+       }
+       productDetail();
+       
+
+       //IIFE:-  is a JavaScript function that runs as soon as it is defined
+       (function(){
+        console.log("hello IIFE");
+       })();
+       //short code for above function
+       (msg=>console.log("IIFE"))();
+       console.log(typeof(msg));
+
+       //Local Storage:-JavaScript localStorage is a feature that enables websites to store persistent, key-value data in a user's browser, with no expiration time. Data stored in localStorage remains available even after the browser is closed and reopened.
+
+       let myInfo={
+        name:'John',
+        age:34,
+        mob:6797676,
+        eMail:"john34@gmail.com",
+        address:"GZB"
+       };
+       //convert object into JSON string
+       let myInfoData=JSON.stringify(myInfo);
+
+    //set the data
+    localStorage.setItem('prefrences',myInfoData);
+
+  //get data (retreive the data)
+    let myPrefrence=localStorage.getItem('prefrences');
+
+    //convert into JSON Object
+    let myInfoPre=JSON.parse(myPrefrence);
+
+    //access keys
+    console.log(myInfoPre.name);
+
+    //High order function:- Higher-order functions help make your code more reusable and modular by allowing you to work with functions like any other value
+
+    //map() Creates a new array by applying a function to every element in the original array.
+
+    let num=[3,5,4,6,67,4,3,6,8,9];
+   let result=num.map(n=>n*2);
+   console.log(result);
+
+   //reduce.. Accumulates the array elements into a single value by repeatedly applying a function to each element and the running total.
+   let sum=num.reduce((total,n)=>total+n);
+   console.log(sum); //115
+
+   //filter:- Creates a new array with only the elements that pass a test implemented by the provided function.
+   let sorting=num.filter(n=>n>3);
+   console.log(sorting);
+
+   //forEach:- Executes a provided function once for each array element, typically for side effects like logging, and does not return a new array.
+
+   num.forEach((n)=>console.log(n*n));
+console.log(`updated array is ${num}`);
+
+    </script>
+</body>
+</html>
