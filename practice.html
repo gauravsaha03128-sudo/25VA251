@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Data</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .data {
+            margin-top: 15px;
+        }
+
+        .item {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .key {
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Student Details</h2>
+    <div class="data" id="output"></div>
+</div>
+
+<script>
+    // Creating student object
+    let student = {
+        Name: "Gaurav",
+        Age: 17,
+        Class: "12th",
+        Subjects: ["Maths", "Physics", "Computer"],
+        IsPassed: true
+    };
+
+    let outputDiv = document.getElementById("output");
+
+    // Loop through object
+    for (let key in student) {
+        let value = student[key];
+
+        // Convert array to string
+        if (Array.isArray(value)) {
+            value = value.join(", ");
+        }
+
+        // Create HTML element
+        let div = document.createElement("div");
+        div.className = "item";
+        div.innerHTML = `<span class="key">${key}</span> : ${value}`;
+
+        outputDiv.appendChild(div);
+    }
+</script>
+
+</body>
+</html>
+    
