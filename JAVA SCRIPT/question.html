@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>condition question</title>
+</head>
+<body>
+    <script>
+        function calculateAverage(arr) {
+    let sum = 0;
+    let i = 0;
+    while (i < arr.length) {
+        sum += arr[i];
+        i++;
+    }
+    return sum / arr.length;
+}
+
+const arr = [90,78,98,76,54,90];
+const average = calculateAverage(arr);
+console.log("Average:", average);
+
+          
+        if(average>=60){
+            console.log("grade A");
+        }else if(average>=40){
+            console.log("grade B");
+        }else if(average>=20){
+            console.log("grade C");
+        }else{
+            console.log("grade D");
+        }
+    </script>
+    
+</body>
+</html>
